@@ -23,6 +23,8 @@ public:
 
     Node<Template> *top();
 
+    string showStack();
+
     int size();
 
     bool empty();
@@ -31,9 +33,9 @@ public:
 template<class Template>
 void Stack<Template>::push(Template object) {
     if (list.getSize() < height) {
-        list.addTop(object);
+        list.addEnd(object);
     } else {
-        throw "There are no more movements";
+        throw "There are no more space";
     }
 }
 
@@ -59,7 +61,7 @@ Node<Template> *Stack<Template>::top() {
 
 template<class Template>
 int Stack<Template>::size() {
-    return list.getSize();
+    return height;
 }
 
 template<class Template>
@@ -73,6 +75,17 @@ bool Stack<Template>::empty() {
 template<class Template>
 Stack<Template>::Stack(int size) {
     this->height = size;
+}
+
+template<class Template>
+string Stack<Template>::showStack() {
+    stringstream output;
+    Node<Template> *iterator;
+
+    for(iterator = list.getHead(); iterator != NULL; iterator = iterator->next) {
+        output << iterator->data << endl;
+    }
+    return output.str();
 }
 
 #endif //EXAMENL_DIANAFALLAS_STACK_H

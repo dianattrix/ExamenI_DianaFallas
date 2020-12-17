@@ -7,22 +7,25 @@
 
 #include<iostream>
 #include<sstream>
+#include"math.h"
+#include<Stack.h>
 
 using namespace std;
 
 class TowerOfHanoi {
 private:
-    int height = 0;
     int movements = 0;
-
+    Stack<int> stack;
 public:
     TowerOfHanoi() = default;
 
-    TowerOfHanoi(int height);
+    explicit TowerOfHanoi(Stack<int> stack);
 
-    void setHeight(int height);
+    void setStack(Stack<int> stack);
 
-    int getHeight();
+    Stack<int> getStack();
+
+    void fillStack();
 
     int calculateMovements();
 
