@@ -80,8 +80,8 @@ template<typename T>
 void List<T>::deleteFirst() {
     Node<T> *temp = m_head;
     m_head = m_head->next;
-    delete temp;
     size--;
+    delete temp;
     throw m_head;
 }
 

@@ -25,6 +25,8 @@ public:
 
     Stack<int> getStack();
 
+    void popFromStack();
+
     void fillStack();
 
     int calculateMovements();

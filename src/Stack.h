@@ -44,7 +44,7 @@ void Stack<Template>::pop() {
     try {
         list.deleteFirst();
     }
-    catch (Node<Template> *node) {
+   catch (Node<Template> *node) {
         if (node == nullptr) {
             throw node;
         }

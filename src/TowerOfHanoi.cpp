@@ -35,3 +35,14 @@ void TowerOfHanoi::fillStack() {
         throw message;
     }
 }
+
+void TowerOfHanoi::popFromStack() {
+    try {
+        stack.pop();
+    }
+    catch (Node<int> *node) {
+        if (node == nullptr) {
+            throw "Empty stack";
+        }
+    }
+}
