@@ -5,15 +5,16 @@
 #include"TowerOfHanoi.h"
 
 
-TowerOfHanoi::TowerOfHanoi(Stack<int> stack) {
+TowerOfHanoi::TowerOfHanoi(Stack<string> stack, string name) {
+    this->stack = stack;
+    this->name = name;
+}
+
+void TowerOfHanoi::setStack(Stack<string> stack) {
     this->stack = stack;
 }
 
-void TowerOfHanoi::setStack(Stack<int> stack) {
-    this->stack = stack;
-}
-
-Stack<int> TowerOfHanoi::getStack() {
+Stack<string> TowerOfHanoi::getStack() {
     return stack;
 }
 
@@ -21,6 +22,7 @@ string TowerOfHanoi::toString() {
     stringstream output;
 
     output << stack.showStack() << endl;
+    output << name;
 
     return output.str();
 }
@@ -28,10 +30,12 @@ string TowerOfHanoi::toString() {
 void TowerOfHanoi::fillStack() {
     try {
         for (int init = 0; init < stack.size(); init++) {
-            stack.push(pow((init + 10), (init + 1)));
+            std::ostringstream buff;
+            buff << pow((stack.size() + 10), (stack.size() + 1));
+            stack.push(buff.str());
         }
     }
-    catch(char const* message){
+    catch (char const *message) {
         throw message;
     }
 }
@@ -45,4 +49,12 @@ void TowerOfHanoi::popFromStack() {
             throw "Empty stack";
         }
     }
+}
+
+void TowerOfHanoi::setName(string name) {
+    this->name = name;
+}
+
+string TowerOfHanoi::getName() {
+    return name;
 }

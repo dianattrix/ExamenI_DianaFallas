@@ -14,22 +14,24 @@ using namespace std;
 
 class TowerOfHanoi {
 private:
-    int movements = 0;
-    Stack<int> stack;
+    Stack<string> stack;
+    string name;
 public:
     TowerOfHanoi() = default;
 
-    explicit TowerOfHanoi(Stack<int> stack);
+    explicit TowerOfHanoi(Stack<string> stack, string name);
 
-    void setStack(Stack<int> stack);
+    void setStack(Stack<string> stack);
 
-    Stack<int> getStack();
+    void setName(string name);
+
+    string getName();
+
+    Stack<string> getStack();
 
     void popFromStack();
 
     void fillStack();
-
-    int calculateMovements();
 
     string toString();
 
