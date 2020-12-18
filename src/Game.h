@@ -15,6 +15,10 @@ public:
 
     int movements(int levels);
 
+    void setMovements(int _movements);
+
+    int getMovements();
+
     static void showSolution(int, int, int, int);
 };
 #endif //EXAMENL_DIANAFALLAS_GAME_H

@@ -19,9 +19,7 @@ private:
 public:
     TowerOfHanoi() = default;
 
-    explicit TowerOfHanoi(Stack<string> stack, string name);
-
-    void setStack(Stack<string> stack);
+    explicit TowerOfHanoi(string name);
 
     void setName(string name);
 
@@ -30,6 +28,10 @@ public:
     Stack<string> getStack();
 
     void popFromStack();
+
+    string getElementAtTop();
+
+    void pushToStack(string);
 
     void fillStack();
 

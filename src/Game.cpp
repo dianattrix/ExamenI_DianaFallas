@@ -25,3 +25,11 @@ void Game::showSolution(int levels, int tower1, int tower2, int tower3) {
         showSolution(levels - 1, tower2, tower1, tower3);
     }
 }
+
+void Game::setMovements(int _movements) {
+    this->_movements = _movements;
+}
+
+int Game::getMovements() {
+    return _movements;
+}

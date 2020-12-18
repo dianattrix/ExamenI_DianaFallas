@@ -11,11 +11,9 @@ template<class Template>
 class Stack {
 private:
     List<Template> list;
-    int height = 0;
+    int height = 4;
 public:
     Stack() = default;
-
-    Stack(int size);
 
     void push(Template object);
 
@@ -70,11 +68,6 @@ bool Stack<Template>::empty() {
         return true;
     }
     return false;
-}
-
-template<class Template>
-Stack<Template>::Stack(int size) {
-    this->height = size;
 }
 
 template<class Template>
