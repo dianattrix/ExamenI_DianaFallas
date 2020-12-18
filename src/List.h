@@ -24,7 +24,7 @@ public:
 
     int getSize();
 
-    void deleteFirst();
+    void deleteLast();
 
     Node<T> *getNextObject();
 
@@ -77,9 +77,10 @@ void List<T>::addEnd(T data_) {
 }
 
 template<typename T>
-void List<T>::deleteFirst() {
+void List<T>::deleteLast() {
+    
     Node<T> *temp = m_head;
-    m_head = m_head->next;
+    m_head = m_head->getNext();
     size--;
     delete temp;
     throw m_head;

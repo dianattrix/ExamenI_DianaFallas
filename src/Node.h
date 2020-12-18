@@ -51,7 +51,8 @@ Node<T>::~Node() {}
 
 template<class T>
 Node<T> *Node<T>::getNext() {
-    return next;
+    
+        return next;
 }
 
 template<class T>

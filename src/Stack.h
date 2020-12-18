@@ -17,7 +17,11 @@ public:
 
     void push(Template object);
 
+    void push_Back(Template object);
+
     void pop();
+
+    List<Template> getList();
 
     Node<Template> *top();
 
@@ -31,8 +35,19 @@ public:
 template<class Template>
 void Stack<Template>::push(Template object) {
     if (list.getSize() < height) {
-        list.addEnd(object);
+        list.addTop(object);
     } else {
+        throw "There are no more space";
+    }
+}
+
+template<class Template>
+inline void Stack<Template>::push_Back(Template object)
+{
+    if (list.getSize() < height) {
+        list.addEnd(object);
+    }
+    else {
         throw "There are no more space";
     }
 }
@@ -40,7 +55,7 @@ void Stack<Template>::push(Template object) {
 template<class Template>
 void Stack<Template>::pop() {
     try {
-        list.deleteFirst();
+        list.deleteLast();
     }
    catch (Node<Template> *node) {
         if (node == nullptr) {
@@ -50,11 +65,19 @@ void Stack<Template>::pop() {
 }
 
 template<class Template>
+inline List<Template> Stack<Template>::getList()
+{
+    return list;
+}
+
+template<class Template>
 Node<Template> *Stack<Template>::top() {
     if (list.getHead() == nullptr) {
         throw list.getHead();
     }
-    return list.getHead();
+    else {
+        return list.getHead();
+    }
 }
 
 template<class Template>
@@ -76,7 +99,7 @@ string Stack<Template>::showStack() {
     Node<Template> *iterator;
 
     for(iterator = list.getHead(); iterator != NULL; iterator = iterator->next) {
-        output << iterator->data << endl;
+        output << iterator->getData() << endl;
     }
     return output.str();
 }

@@ -23,7 +23,7 @@ void TowerOfHanoi::fillStack() {
         for (int init = 0; init < stack.size(); init++) {
             std::ostringstream buff;
             buff << pow((init + 10), (init + 1));
-            stack.push(buff.str());
+            stack.push_Back(buff.str());
         }
     }
     catch (char const *message) {
@@ -59,5 +59,10 @@ void TowerOfHanoi::pushToStack(string number) {
 }
 
 string TowerOfHanoi::getElementAtTop() {
-    return stack.top()->getData();
+    try {
+        return stack.top()->getData();
+    }
+    catch (Node<string>* node) {
+        throw "There are no more elements";
+    }
 }
